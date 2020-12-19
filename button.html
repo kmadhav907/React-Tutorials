@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'></div>
+    <script type='text/babel'>
+        class Button extends React.Component{
+            state = {
+                number: 10
+            }
+             event= (e)=>{
+               // console.log(e.target)
+               this.setState({
+                   number : this.state.number + 10,
+               })
+               console.log(this.state.number)
+                
+            }
+            handlerMouseOver = (e)=>{
+                console.log(e.target, e.pageX)
+            }
+            handleCopy =(e) => {
+                console.log("Try being Original once")
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>The value of number: {this.state.number} </h1>
+                        <button onClick={this.event}>Click Me </button>
+                        <br />
+                        <br />
+                        <button onMouseOver={this.handlerMouseOver}>Hover </button>
+                        <p onCopy={this.handleCopy}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci cumque saepe repudiandae, dolor minus amet ut illo eos magnam quae cupiditate sunt mollitia sed error hic impedit, dolorum quo nemo! </p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Button />, document.getElementById('app'))
+    </script>
+    
+</body>
+</html>
